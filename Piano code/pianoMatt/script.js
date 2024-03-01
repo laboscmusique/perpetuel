@@ -1,5 +1,5 @@
 const password = ["do", "do", "do", "re", "mi", "re"];
-const siteUrl = "https://www.kfc.fr/";
+const siteUrl = "https://laboscmusique.github.io/perpetuel/page7tre.html";
 
 window.onload = function () {
   const background = document.getElementById("piano-container");
