@@ -1,0 +1,63 @@
+* {
+  margin: 0;
+  background-color: rgb(33, 33, 33);
+}
+
+.container {
+  max-width: 80%;
+  height: 100vh;
+  position: relative;
+  margin: auto;
+}
+
+#piano-container {
+  position: absolute;
+  z-index: 10;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("./assets/img/piano0.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+#piano-container-back {
+  position: absolute;
+  z-index: 5;
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  background-image: url("./assets/img/piano0.jpg");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.note {
+  position: absolute;
+  height: 100%;
+  background-color: transparent;
+}
+#do {
+  left: 40.5%;
+  width: 6%;
+}
+#re {
+  left: 46.5%;
+  width: 6%;
+}
+#mi {
+  left: 52.5%;
+  width: 6.3%;
+}
+#fa {
+  left: 58.8%;
+  width: 6.2%;
+}
+#sol {
+  left: 65.15%;
+  width: 6%;
+}
