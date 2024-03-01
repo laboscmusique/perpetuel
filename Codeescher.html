@@ -1,0 +1,107 @@
+<div class="container">
+  <div class="left">
+    Que dirais-tu pour ouvrir la boîte ?
+  </div>
+  <div class="right">
+    <label for="">Ta réponse:</label
+    ><input type="text" placeholder="" id="pwd" />
+    <div class="btn-container">
+      <button id="button">OK</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  let button = document.getElementById("button");
+  button.addEventListener("click", checkPassword);
+  let password = "";
+  let passwordList = ["escher", "Maurits Cornelis Escher"];
+  let error = document.getElementById("error");
+  let input = document.getElementById("pwd");
+
+  input.addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      button.click();
+    }
+  });
+
+  function checkPassword() {
+    password = input.value.toLowerCase();
+    if (passwordList.some((p) => p.toLowerCase() === password)) {
+      window.top.location.href =
+        "https://lab.yj.fr/Mouvement/page3qsdf.html";
+    } else {
+      input.value = "";
+      input.style.borderColor = "#C82333";
+      input.placeholder = "Désolé, ce n'est pas ca.";
+      input.style.opacity = 0.8;
+      setTimeout(() => {
+        input.style.borderColor = "#737373";
+        input.placeholder = "";
+        input.style.opacity = 1;
+      }, 2000);
+    }
+  }
+</script>
+<style>
+  .container {
+    width: 558px;
+    display: flex;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 0 !important;
+    font-size: 1.1rem !important;
+    font-family: roboto !important;
+  }
+
+  .left,
+  .right {
+    width: 45% !important;
+    padding: 1rem 2rem !important;
+    color: #737373;
+  }
+  .left {
+    width: 55% !important;
+    font-size: 1.3rem !important;
+    border-right: 1px solid #737373 !important;
+    text-align: center;
+    padding: 1rem 3rem 1rem 2rem !important;
+  }
+  .right {
+    display: flex;
+    flex-direction: column;
+  }
+  button {
+    background: #737373;
+    color: white;
+    padding: 0.1rem 2.5rem !important;
+    border: 1px solid #737373 !important;
+    font-weight: 900 !important;
+    font-size: 1.2rem !important;
+  }
+  button:hover {
+    cursor: pointer;
+    background-color: #666;
+  }
+  button:active {
+    transform: translateY(1px);
+  }
+
+  input {
+    border: 1px solid #737373;
+    color: #737373;
+    margin: 0.8rem 0 !important;
+    font-size: 1.1rem !important;
+    padding: 0.2rem !important;
+    font-family: inherit;
+  }
+  input::placeholder {
+    color: #c82333;
+    opacity: 1;
+  }
+  .btn-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+</style>

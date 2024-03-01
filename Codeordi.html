@@ -1,0 +1,139 @@
+<div class="container">
+  <div class="right">
+    <label for="">Mot de passe:</label>
+    <div class="cursor">
+      <span>
+        >
+      </span>
+      <input
+        type="text"
+        placeholder=""
+        onblur="this.focus()"
+        id="pwd"
+        autofocus
+      />
+    </div>
+    <div class="btn-container">
+      <button id="button">OK</button>
+    </div>
+  </div>
+</div>
+
+<script>
+  const redirectionUrl =
+    "https://lab.yj.fr/Mouvement/page6rty.html";
+
+  let button = document.getElementById("button");
+  button.addEventListener("click", checkPassword);
+  let password = "";
+  const passwordList = ["croit12", "croitdouze","croit 12"];
+  let error = document.getElementById("error");
+  let input = document.getElementById("pwd");
+
+  input.addEventListener("keyup", function (event) {
+    if (event.keyCode === 13) {
+      event.preventDefault();
+      button.click();
+    }
+  });
+
+  function checkPassword() {
+    password = input.value.toLowerCase();
+    if (passwordList.some((p) => p.toLowerCase() === password)) {
+      window.top.location.href = redirectionUrl;
+    } else {
+      input.value = "";
+      input.placeholder = "Error";
+      setTimeout(() => {
+        input.placeholder = "";
+      }, 2000);
+    }
+  }
+</script>
+
+<style>
+  .container {
+    width: 100%;
+    padding: 0 !important;
+    font-size: 1.1rem !important;
+    background-color: black;
+    background-image: radial-gradient(
+      circle at 300%,
+      rgba(0, 150, 0, 0.75),
+      black 120%
+    );
+    color: #41f770;
+    font: 1.3rem Inconsolata, monospace;
+    text-shadow: 0 0 5px #c8c8c8;
+  }
+
+  .right {
+    padding: 1rem !important;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+  }
+  .right::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    height: 100%;
+    width: 100%;
+    background-image: repeating-linear-gradient(
+      0deg,
+      rgba(0, 0, 0, 0.15),
+      rgba(0, 0, 0, 0.15) 1px,
+      transparent 1px,
+      transparent 2px
+    );
+    pointer-events: none;
+  }
+  button {
+    background: #737373;
+    color: #41f770;
+    padding: 0.1rem 2.5rem !important;
+    border: 1px solid #737373 !important;
+    font-weight: 900 !important;
+    font-size: 1.2rem !important;
+  }
+  button:hover {
+    cursor: pointer;
+    background-color: #666;
+  }
+  button:active {
+    transform: translateY(1px);
+  }
+  input {
+    width: 100%;
+    border: none;
+    color: #41f770;
+    background-color: transparent;
+    margin: 0.8rem 0 !important;
+    font-size: 1.1rem !important;
+    padding: 0.2rem !important;
+    font-family: inherit;
+  }
+
+  input:focus {
+    outline: none;
+  }
+  input::placeholder {
+    color: #ff5542;
+    opacity: 1;
+  }
+  .btn-container {
+    display: flex;
+    justify-content: flex-end;
+  }
+  .cursor {
+    position: relative;
+    display: flex;
+    align-items: center;
+  }
+  .cursor span {
+    margin-right: 0.5rem;
+  }
+</style>
