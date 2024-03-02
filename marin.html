@@ -1,0 +1,159 @@
+<div class="music-card" id="musicCard1"><div class="image1 image"><br></div><div class="wave"><br></div><div class="wave"><br></div><div class="wave"><br></div><div class="info"><h2 class="title">Sonnerie de Sainte-Geneviève</h2><div class="artist">Marin Marais</div></div><i id="play1" class="fa fa-play"></i> <i id="pause1" class="fa fa-pause" style="display: none;"></i></div><script src="https://kit.fontawesome.com/eebab46ce1.js" crossorigin="anonymous"></script><script>
+	var audio1 = new Audio(
+		"https://laboscmusique.github.io/perpetuel/MP3/Marin.mp3"
+	);
+	let play1Button = document.getElementById("play1");
+	let pause1Button = document.getElementById("pause1");
+	let musicCard1 = document.getElementById("musicCard1");
+
+	setTimeout(() =>
+	{
+		play1Button.addEventListener("click", play);
+		pause1Button.addEventListener("click", pause);
+		if (autoplay1) play();
+	}, 500);
+
+	let play = () =>
+	{
+		audio1.play();
+		play1Button.style.display = "none";
+		pause1Button.style.display = "block";
+		musicCard1.classList.add("playing1");
+	};
+	let pause = () =>
+	{
+		audio1.pause();
+		play1Button.style.display = "block";
+		pause1Button.style.display = "none";
+		musicCard1.classList.remove("playing1");
+	};
+
+</script><style>
+	@import "https://fonts.googleapis.com/css?family=Reem+Kufi";
+	body {
+		background: #fff;
+	}
+	
+	.playing1 .wave:nth-child(3) {
+		animation-duration: 5000ms;
+	}
+	
+	.playing1 .wave:nth-child(2) {
+		animation-duration: 4000ms;
+	}
+	
+	.image1 {
+		background: url("https://upload.wikimedia.org/wikipedia/commons/3/3a/Division_viol.jpg?format=1000w") no-repeat 75%;
+	}
+	
+	@keyframes wave {
+		0% {
+			transform: rotate(0deg);
+		}
+		100% {
+			transform: rotate(360deg);
+		}
+	}
+	
+	.music-card {
+		margin: 100px auto;
+		background: #fff;
+		box-shadow: 0px 8px 28px -9px rgba(0, 0, 0, 0.45);
+		overflow: hidden;
+		position: relative;
+		width: 300px;
+		height: 500px;
+		border-radius: 6px;
+	}
+	
+	.image {
+		background-size: cover;
+		position: absolute;
+		z-index: 1;
+		opacity: 0.3;
+		height: 400px;
+		width: 300px;
+	}
+	
+	.image:after {
+		height: 100px;
+		content: "";
+		top: 300px;
+		position: absolute;
+		width: 100%;
+		z-index: 1;
+		background: linear-gradient(rgba(0, 0, 0, 0), #fff);
+	}
+	
+	.wave {
+		position: absolute;
+		height: 750px;
+		width: 750px;
+		opacity: 0.6;
+		left: -270px;
+		bottom: 100px;
+		margin-left: -100%;
+		margin-top: -130%;
+		background: radial-gradient(#353535, #383737);
+	}
+	
+	.wave:nth-child(2),
+	.wave:nth-child(3) {
+		bottom: 110px;
+	}
+	
+	.playing .wave {
+		border-radius: 40%;
+		animation: wave 3000ms infinite linear;
+	}
+	/* when stop */
+	
+	.wave {
+		border-radius: 40%;
+		animation: wave 55s infinite linear;
+	}
+	/* when stop */
+	
+	.wave:nth-child(2) {
+		animation-duration: 50s;
+	}
+	/* when stop */
+	
+	.wave:nth-child(3) {
+		animation-duration: 45s;
+	}
+	
+	.info {
+		position: absolute;
+		bottom: 20px;
+		left: 0;
+		right: 0;
+		text-align: center;
+	}
+	
+	.title {
+		font-size: 1em;
+		font-weight: 200;
+		color: #333;
+		margin-bottom: 8px;
+		font-family: "Reem Kufi", sans-serif;
+	}
+	
+	.artist {
+		color: #cfcfcf;
+		font-size: 1.2em;
+		letter-spacing: 0.08em;
+		font-family: "Reem Kufi", sans-serif;
+		margin-top: -10px;
+	}
+	
+	.fa {
+		position: absolute;
+		bottom: 10px;
+		right: 10px;
+		font-size: 18px;
+		cursor: pointer;
+		color: #555;
+	}
+
+</style>
